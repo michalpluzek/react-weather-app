@@ -3,14 +3,13 @@ import "./Form.css";
 
 const Form = (props) => {
   return (
-    <form onSubmit={props.submit}>
+    <form>
       <input
         type="text"
         value={props.value}
         onChange={props.change}
         placeholder="Wpisz nazwę miasta"
       />
-      <button>Wyszukaj miasto</button>
     </form>
   );
 };
