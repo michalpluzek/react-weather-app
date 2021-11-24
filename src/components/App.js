@@ -39,31 +39,34 @@ class App extends React.Component {
         }
       })
       .then((data) => {
-        const actualTime = new Date().toLocalString();
+        const actualTime = new Date().toLocaleString();
 
-        this.setState({
+        this.setState((prevState) => ({
           weather: {
             date: actualTime,
-            city: this.state.inputValue,
-            sunrise: data.sys.sunrise.toLocalTimeString(),
-            sunset: data.sys.sunset.toLocalTimeString(),
+            city: prevState.inputValue,
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset,
             temp: data.main.temp,
             wind: data.wind.speed,
             pressure: data.main.pressure,
           },
           err: false,
-        });
+        }));
       })
       .catch((err) => {
         console.log(err);
-        this.setState({
+        this.setState((prevState) => ({
           err: true,
-        });
+          weather: {
+            city: prevState.inputValue,
+          },
+        }));
       });
   };
 
   render() {
-    const { err, inputValue } = this.state;
+    const { err, inputValue, weather } = this.state;
 
     return (
       <div className="App">
@@ -72,7 +75,7 @@ class App extends React.Component {
           change={this.handleInputChange}
           submit={this.handleCitySubmit}
         />
-        <Result error={err} />
+        <Result error={err} weather={weather} />
       </div>
     );
   }
