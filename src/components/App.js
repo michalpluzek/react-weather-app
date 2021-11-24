@@ -69,7 +69,7 @@ class App extends React.Component {
     const { err, inputValue, weather } = this.state;
 
     return (
-      <div className="App">
+      <div className="app">
         <Form
           value={inputValue}
           change={this.handleInputChange}

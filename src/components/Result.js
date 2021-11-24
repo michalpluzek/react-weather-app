@@ -17,7 +17,7 @@ const Result = (props) => {
     result = (
       <>
         <p>
-          Pogoda dla: <strong>{city}</strong>
+          Pogoda dla: <em>{city}</em>
         </p>
         <p>
           Aktualny czas: <strong>{date}</strong>
