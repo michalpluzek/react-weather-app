@@ -6,7 +6,7 @@ import Result from "./Result";
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <Form />
         <Result />
       </div>
