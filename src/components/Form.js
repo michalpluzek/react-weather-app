@@ -1,13 +1,17 @@
-import React from "react";
-import "./Form.css";
+import React from 'react';
+import './Form.css';
 
-const Form = (props) => {
+const Form = ({ value, change }) => {
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleOnSubmit}>
       <input
         type="text"
-        value={props.value}
-        onChange={props.change}
+        value={value}
+        onChange={change}
         placeholder="Wpisz nazwę miasta"
       />
     </form>
